@@ -49,6 +49,12 @@ const getFacts = async () => {
             
         parent.append(newElement)
 
+        // Note: could reset properties here (see CSS file)
+        // document.documentElement.style.setProperty('--dynamic-color2', 'purple');
+        // document.documentElement.style.setProperty('--dynamic-font-size', '70px');
+
+        parent.classList.add('dynamic-style');
+
     } catch (error) {
         console.log(`Error,  ${err}`)
     }

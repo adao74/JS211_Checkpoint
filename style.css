@@ -1,0 +1,25 @@
+/* Styling elements that are dynamically rendered (i.e. added to DOM after initial page load)
+
+METHOD 1: IN-LINE STYLING (NOT SHOWN)
+
+METHOD 2: CSS CLASSES
+.dynamic-style {
+    color: blue;
+    font-size: 20px;
+}
+    
+*/ 
+
+/* METHOD 3: CSS VARIABLES */
+:root {
+    --dynamic-color: blue;
+    --dynamic-color2: green;
+
+    --dynamic-font-size: 20px;
+
+}
+  
+.dynamic-style {
+    color: var(--dynamic-color2); /* Can choose which variable (i.e. dynamic color 1 or 2)*/
+    font-size: var(--dynamic-font-size);
+}
