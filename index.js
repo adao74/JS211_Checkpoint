@@ -31,7 +31,11 @@ const getFacts = () => {
     .then(res => {
         console.log(res)
         const newElement = document.createElement("p")
-        newElement.innerText = res.data[0].fact
+        let text = ""
+        res.data.forEach( (element, index) => {
+            text = `${text} \n ${index + 1}. ${element.fact}` 
+        });
+        newElement.innerText = text
         document.getElementById("facts").append(newElement)
     })
     .catch(err => console.log(`Error,  ${err}`)) // for all errors
