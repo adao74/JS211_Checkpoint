@@ -25,10 +25,12 @@ const catchError = (res) => {
 }
 
 
-const getFacts = () => {
-    fetch(`https://catfact.ninja/facts?limit=${userInput}&max_length=150`)
-    .then( (response) => catchError(response))
-    .then(res => {
+const getFacts = async () => {
+    try {
+        const response = await fetch(`https://catfact.ninja/facts?limit=${userInput}&max_length=150`)
+
+        const res = await catchError(response)
+    
         console.log(res)
         const newElement = document.createElement("p")
         let text = ""
@@ -37,8 +39,28 @@ const getFacts = () => {
         });
         newElement.innerText = text
         document.getElementById("facts").append(newElement)
-    })
-    .catch(err => console.log(`Error,  ${err}`)) // for all errors
-  }
+    } catch (error) {
+        console.log(`Error,  ${err}`)
+    }
+
+}
+
+
+// Same thing, but using fetch:
+// const getFacts = () => {
+//     fetch(`https://catfact.ninja/facts?limit=${userInput}&max_length=150`)
+//     .then( (response) => catchError(response))
+//     .then(res => {
+//         console.log(res)
+//         const newElement = document.createElement("p")
+//         let text = ""
+//         res.data.forEach( (element, index) => {
+//             text = `${text} \n ${index + 1}. ${element.fact}` 
+//         });
+//         newElement.innerText = text
+//         document.getElementById("facts").append(newElement)
+//     })
+//     .catch(err => console.log(`Error,  ${err}`)) // for all errors
+// }
 
 
