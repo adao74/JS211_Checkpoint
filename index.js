@@ -48,7 +48,7 @@ const getFacts = async () => {
         }
             
         parent.append(newElement)
-        
+
     } catch (error) {
         console.log(`Error,  ${err}`)
     }
@@ -62,13 +62,22 @@ const getFacts = async () => {
 //     .then( (response) => catchError(response))
 //     .then(res => {
 //         console.log(res)
-//         const newElement = document.createElement("p")
+
+        
 //         let text = ""
 //         res.data.forEach( (element, index) => {
 //             text = `${text} \n ${index + 1}. ${element.fact}` 
 //         });
+
+//         const newElement = document.createElement("p")
 //         newElement.innerText = text
-//         document.getElementById("facts").append(newElement)
+
+//         const parent = document.getElementById("facts")
+//         if (parent.firstElementChild) {
+//             parent.removeChild(parent.firstElementChild)
+//         }
+            
+//         parent.append(newElement)
 //     })
 //     .catch(err => console.log(`Error,  ${err}`)) // for all errors
 // }
